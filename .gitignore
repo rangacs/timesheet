@@ -1,0 +1,10 @@
+*system/logs/*
+*system/logs/log-*.php
+*system/logs/!index.html
+*system/cache/*
+*application/logs/*
+*application/logs/log-*.php
+*application/logs/!index.html
+*application/cache/*
+*static/*
+*aplication/config/database.php
