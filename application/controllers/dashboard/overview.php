@@ -22,12 +22,13 @@ Class Overview extends CI_Controller
         $data['projects'] = $return;
         
 	$data = array(
-	'main_content' => 'dashboard/overview_view',
+	'main_content' => 'dashboard/new_overview_view',
 	'page_title' => 'Dashboard',
+        'hours' => $this->hours_model->getAll(),
 	'page_tagline' => 'Overview'
 		);
 	
-        $this->load->view('dashboard/new_overview_view', $data);
+        $this->load->view('dashboard/inc/template2', $data);
 	
     }
     

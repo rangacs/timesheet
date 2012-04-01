@@ -41,7 +41,7 @@
                             <td style="text-align:right">
 				<a href="<?=base_url('dashboard/hours/view/' . $row->id)?>" style="text-decoration:none;padding-right:5px"><span class="label">View</span></a>
 				<a href="<?=base_url('dashboard/hours/edit/' . $row->id)?>" style="text-decoration:none;padding-right:5px"><span class="label label-info">Edit</span></a>
-				<a href="<?=base_url('dashboard/hours/delete/' . $row->id)?>" style="text-decoration:none;padding-right:0px"><span class="label" style="background-color:black">Delete</span></a>
+				<a class="confirm" href="<?=base_url('dashboard/hours/delete/' . $row->id)?>" style="text-decoration:none;padding-right:0px"><span class="label" style="background-color:black">Delete</span></a>
 			    </td>
                         </tr>
                         <?php endforeach; ?>
@@ -49,24 +49,16 @@
                 </table>
 		
 
-        
-
-	    <script type="text/JavaScript">
- 
-	    FUNCTION confirmDelete(){
-	    VAR agree=CONFIRM("Delete record?");
-	    IF (agree)
-		 RETURN TRUE ;
-	    ELSE
-		 RETURN FALSE ;
-	    }
-	    </script>
-	    
-	    <script>
-		$(document).ready(function() 
-		    { 
-			$("#hourstable").tablesorter(); 
-		    } 
-		); 
-	    </script>
+    
 	    <? endif?>
+	    
+<script type="text/javascript" charset="utf-8">
+				    $(document).ready(function() {
+					    $('.confirm').click(function(e) {
+						    if(!confirm('Are you sure?'))
+						    {
+							    return false;
+						    }
+					    });
+				    });
+				</script>

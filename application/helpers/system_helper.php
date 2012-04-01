@@ -1,4 +1,5 @@
 <?php
+
 function is_active($name)
 {
     $CI = get_instance();
@@ -35,6 +36,25 @@ function getUserName($id, $r="echo")
  
 }
 
+function getName($id)
+{
+    $CI =& get_instance();
+    
+    $CI->load->model('user_model');
+    $q = $CI->user_model->find(array('id' => $id));
+    
+    if(!$q[0])
+    {
+        return 'no user';
+    }
+    
+    else
+    {
+        echo $q[0]->name;
+    }
+    
+}
+
 function total_hours($start, $end, $break="0")
 {
         $sa = explode(':', $start);
@@ -60,6 +80,18 @@ function checklogin()
                 die();
         }
 
+}
+
+function projectName($id)
+{
+    $CI = get_instance();
+    $CI->load->model('projects_model');
+    
+    $q = $CI->projects_model->find(array('id' => $id));
+    
+    foreach($q->result() as $row){
+        echo $row->project_name;
+    }
 }
 
 
