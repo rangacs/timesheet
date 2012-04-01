@@ -26,6 +26,15 @@ Class Hours_model extends CI_Model
             
             return $query->result();
         }
+	
+	function getAllGroup()
+	{
+
+		$this->db->group_by((array("date", "project_id")));
+		$query = $this->db->get($this->tbl);
+		
+		return $query->result();
+	}
         
 	function find($data)
 	{

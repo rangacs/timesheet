@@ -22,7 +22,7 @@
 						events: [
 						    <? foreach($hours as $row):?>
 						    {
-							title:	'<?getName($row->user_id)?> <?projectName($row->project_id)?> <?=$row->hours?>',
+							title:	'<?projectName($row->project_id)?> <?=$row->hours?>',
 							start: '<?= $row->date?>',
 							description: 'test'
 						    },

@@ -33,6 +33,7 @@
 <label for="user">User</label><select name="user_id" class="input-small">
     <option value="1">Bj&oslash;rn</option>
     <option value="2">Kim</option>
+    <option value="3">Begge</option>
     </select>
 <label for="project_id">Project</label><?php echo form_dropdown('project_id', $projects) ?><br/>
 <label for="date">Date</label><?php echo form_input('date', date('Y-m-d'))?><br/>

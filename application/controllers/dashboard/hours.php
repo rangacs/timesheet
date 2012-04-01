@@ -124,16 +124,50 @@ Class Hours extends CI_Controller
                 'comment' => $this->input->post('comment'),
             );
             
-            
-            if($this->hours_model->add_hours($input))
-            {
-                $this->notify->add('success', 'Record added successfully!');
+            if($this->input->post('user_id') == 3){
+                $input['user_id'] = 1;
                 
-                redirect(base_url('dashboard/hours/index'));
+                if($this->hours_model->add_hours($input))
+                {
+                    $input['user_id'] = 2;
+                    if($this->hours_model->add_hours($input))
+                    {
+                        $this->notify->add('success', 'Record added successfully!');
+                
+                        redirect(base_url('dashboard/hours/index'));    
+                    }
+                    
+                    else
+                    {
+                        $this->notify->add('error', '<b>ERROR</b> Reccord was not added!!!');
+                        
+                        redirect(base_url('dashboard/hours/index'));
+                    }
+                }
+                
+                else
+                {
+                    $this->notify->add('error', '<b>ERROR</b> Reccord was not added!!!');
+                        
+                    redirect(base_url('dashboard/hours/index'));
+                }
             }
+            
             else
             {
-                echo 'error';
+            
+                if($this->hours_model->add_hours($input))
+                {
+                    $this->notify->add('success', 'Record added successfully!');
+                    
+                    redirect(base_url('dashboard/hours/index'));
+                }
+                else
+                {
+                    $this->notify->add('error', '<b>ERROR</b> Reccord was not added!!!');
+                        
+                    redirect(base_url('dashboard/hours/index'));
+                }
             }
         }
         

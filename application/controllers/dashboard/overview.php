@@ -13,18 +13,20 @@ Class Overview extends CI_Controller
     function index()
     {
 	$this->load->model('projects_model');
-        $projects = $this->projects_model->getAll();
-        arsort($projects);
-        foreach($projects as $project)
-        {
-            $return[$project->id] = $project->project_name;
-        }
-        $data['projects'] = $return;
         
+	if($projects = $this->projects_model->getAll()){
+	    
+	    arsort($projects);
+	    foreach($projects as $project)
+	    {
+		$return[$project->id] = $project->project_name;
+	    }
+	    $data['projects'] = $return;
+	}
 	$data = array(
 	'main_content' => 'dashboard/new_overview_view',
 	'page_title' => 'Dashboard',
-        'hours' => $this->hours_model->getAll(),
+        'hours' => $this->hours_model->getAllGroup(),
 	'page_tagline' => 'Overview'
 		);
 	

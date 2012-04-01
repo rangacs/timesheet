@@ -43,7 +43,7 @@
 				<a class="brand" href="#">Timesheet</a>
 				
 				<ul class="nav">
-				    <li class="<?=is_active('overview')?>"><a href="#"><i class="<? if($this->uri->segment(2) == 'overview'){echo 'icon-home';} else {echo 'icon-home icon-white';}?>"></i></a></li>
+				    <li class="<?=is_active('overview')?>"><a href="<?=base_url('dashboard/overview/index')?>"><i class="icon-home icon-white"></i></a></li>
 				    <li class="<?=is_active('hours')?>"><a href="<?=base_url('dashboard/hours/index')?>">Hours</a></li>
 				    <li class="<?=is_active('materials')?>"><a href="<?=base_url('dashboard/materials/index')?>">Materials</a></li>
 				    <li class="<?=is_active('projects')?>"><a href="<?=base_url('dashboard/projects/index')?>">Projects</a></li>
