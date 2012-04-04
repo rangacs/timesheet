@@ -89,5 +89,17 @@ Class Hours_model extends CI_Model
 		
 		return $result->result();
 	}
+        
+        function lastUpdate($project_id)
+        {
+            $this->db->select('date');
+            $this->db->where('project_id', $project_id);
+            $this->db->order_by('date', 'desc');
+            $this->db->limit(1);
+            
+            $result = $this->db->get($this->tbl);
+            
+            return $result->result();  
+        }
 	
 }

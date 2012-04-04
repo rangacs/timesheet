@@ -16,9 +16,10 @@
                 <table class="table table-striped" id="hourstable">
                     <thead>
                     <tr>
-                        <th class="header" style="width:100px">Date</th>
-                        <th class="header" style="width:100px">Week</th>
+                        <th class="header" style="">Date</th>
+                        <th class="header" style="">Week</th>
 			<th class="header">Day</th>
+			<th class="header">Project</th>
                         <th class="header">User</th>
                         <th class="header">Hours</th>
                         <th class="header">Start</th>
@@ -33,7 +34,8 @@
                             <td><?php echo $row->date ?></td>
                             <td><a href="<?= base_url('dashboard/hours/sortby/week') . "/$row->week" ?>"><?=$row->week?></a></td>
 			    <td><?=date('l', strtotime($row->date))?></td>
-                            <td><a href="<?= base_url('dashboard/hours/sortby/user') . "/$row->user_id" ?>"><?php getUserName($row->user_id); ?></a></td>
+                            <td><a href="<?=base_url("dashboard/projects/view/$row->project_id")?>"><?projectName($row->project_id)?></a></td>
+			    <td><a href="<?= base_url('dashboard/hours/sortby/user') . "/$row->user_id" ?>"><?php getName($row->user_id); ?></a></td>
                             <td><?=$row->hours ?></td>
                             <td><?php echo $row->start ?></td>
                             <td><?php echo $row->end ?></td>
@@ -48,6 +50,7 @@
                     </tbody>
                 </table>
 		
+		
 
     
 	    <? endif?>
@@ -60,5 +63,9 @@
 							    return false;
 						    }
 					    });
+					     $("#hourstable").tablesorter({ 
+						// sort on the first column and third column, order asc 
+						sortList: [[0,1]]
+					    }); 
 				    });
 				</script>

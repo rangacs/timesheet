@@ -30,7 +30,7 @@
                     <th class="header">Start</th>
                     <th class="header">End</th>
                     <th class="header">Break</th>
-                    <th class="header">Action</th>
+                    <th class="header" style="text-align:right">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,7 @@
                     <tr>
                         <td><?php echo $row->date ?></td>
                         <td><?=$row->week?></td>
-                        <td><? getUserName($row->user_id)?></td>
+                        <td><? getName($row->user_id)?></td>
                         <td><?=$row->hours ?></td>
                         <td><?php echo $row->start ?></td>
                         <td><?php echo $row->end ?></td>

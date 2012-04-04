@@ -51,10 +51,27 @@ Class Overview extends CI_Controller
     
     function view_hours()
     {
-        $this->load->model('hours_model');
         $data['hours'] = $this->hours_model->getAll();
         
         $data['main_content'] = 'members_view_hours_view';
+        $this->load->view('dashboard/inc/template', $data);
+    }
+    
+    function date()
+    {
+        $date = $this->uri->segment(4) . '-' . $this->uri->segment(5) . '-' . $this->uri->segment(6);
+        $date2 = $this->uri->segment(4) . '/' . $this->uri->segment(5) . '/' . $this->uri->segment(6);
+        
+        $hours = $this->hours_model->find(array('date' => $date));
+        $materials = $this->materials_model->find(array('matDate' => $date));
+        
+        $data = array(
+            'main_content' => 'dashboard/overview/date_view.php',
+            'date' => $date2,
+            'hours' => $hours,
+            'materials' => $materials
+            );
+        
         $this->load->view('dashboard/inc/template', $data);
     }
 }

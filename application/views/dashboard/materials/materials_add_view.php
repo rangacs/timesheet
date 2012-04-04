@@ -29,7 +29,12 @@
     </style>
 <?php echo form_open('dashboard/materials/add'); ?>
 <label for="project_id">Project</label><?php echo form_dropdown('matProId', $projects) ?><br/>
+<? if($this->uri->segment(6)):?>
+    <? $date = $this->uri->segment(4) . '-' . $this->uri->segment(5) . '-' . $this->uri->segment(6);?>
+    <label for="date">Date</label><?php echo form_input('matDate', $date)?><br/>
+<? else:?>
 <label for="date">Date</label><?php echo form_input('matDate', date('Y-m-d')) ?><br/>
+<? endif;?>
 <label for="Comment">Description</label><?= form_textarea(array('name' => 'matDescription', 'rows' => 5, 'cols' => 40, 'style' => 'width:218px;margin-bottom:10px'))?><br/>
 <label for="submit"></label><input class="btn primary" type="submit" value="Submit" />
 <?php echo form_close(); ?>

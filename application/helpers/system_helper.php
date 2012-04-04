@@ -94,5 +94,18 @@ function projectName($id)
     }
 }
 
+function projectLastUpdate($project_id)
+{
+    $CI = get_instance();
+    $CI->load->model('hours_model');
+    
+    $q = $CI->hours_model->lastUpdate($project_id);
+    
+    foreach($q as $row)
+    {
+        echo $row->date;
+    }
+}
+
 
   

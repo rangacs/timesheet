@@ -36,7 +36,12 @@
     <option value="3">Begge</option>
     </select>
 <label for="project_id">Project</label><?php echo form_dropdown('project_id', $projects) ?><br/>
+<?if($this->uri->segment(6)):?>
+    <? $date = $this->uri->segment(4) . '-' . $this->uri->segment(5) . '-' . $this->uri->segment(6);?>
+    <label for="date">Date</label><?php echo form_input('date', $date)?><br/>
+    <?else:?>
 <label for="date">Date</label><?php echo form_input('date', date('Y-m-d'))?><br/>
+<?endif;?>
 <label for="start">Start</label><select name="start-hour" class="input-mini">
     <option value="07:">07</option>
     <option value="08:" selected="selected">08</option>

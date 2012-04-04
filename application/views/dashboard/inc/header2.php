@@ -48,7 +48,6 @@
 				    <li class="<?=is_active('materials')?>"><a href="<?=base_url('dashboard/materials/index')?>">Materials</a></li>
 				    <li class="<?=is_active('projects')?>"><a href="<?=base_url('dashboard/projects/index')?>">Projects</a></li>
 				    <li class="<?=is_active('clockout')?>"><a href="<?=base_url('dashboard/clockout/index')?>">Clockout</a></li>
-				    <li class="<?=is_active('calendar')?>"><a href="<?=base_url('dashboard/calendar/index')?>">Calendar</a></li>
 				    <li class="<?=is_active('people')?>"><a href="<?=base_url('dashboard/people/index')?>">People</a></li>
 				</ul>
 				<ul class="nav" style="float:right;margin-right:50px">

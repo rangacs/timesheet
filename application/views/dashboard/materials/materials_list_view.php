@@ -28,7 +28,7 @@
                 <tr>
                     <td><?=$row->matId?></td>
                     <td><?=$row->matDate?></td>
-                    <td><?=$row->matProId?></td>
+                    <td><?projectName($row->matProId)?></td>
 		    <td><?=$row->matDescription?></td>
                     <td style="text-align:right">
 			<a href="<?=base_url('dashboard/materials/view/' . $row->matId)?>" style="text-decoration:none;padding-right:5px"><span class="label notice">View</span></a>

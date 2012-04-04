@@ -24,7 +24,7 @@
             <tbody>
                 <?php foreach($people as $row): ?>
                 <tr>
-                    <td><?=$row->username?></td>
+                    <td><?=$row->name?></td>
                     <td><?=$row->email?></td>
                     <td style="text-align:right"><a href="<?=base_url('dashboard/people/show/' . $row->id)?>" style="text-decoration:none;padding-right:5px"><span class="label notice">View</span></a>
                 </tr>

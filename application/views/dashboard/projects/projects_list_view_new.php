@@ -17,7 +17,8 @@
             <tr>
                 <th class="header" style="width:10%">Id</th>
                 <th class="header" style="width:25%">Name</th>
-                <th class="header" style="width:50%">Description</th>
+                <th class="header" style="width:40%">Description</th>
+		<th class="header" style="width:10%">Last update</th>
                 <th class="header" style="width:15%;text-align:right">Action</th>
             </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td><?=$row->id?></td>
                     <td><?=$row->project_name?></td>
                     <td><?=$row->project_description?></td>
+		    <td><? projectLastUpdate($row->id)?></td>
                     <td style="text-align:right"><a href="<?=base_url('dashboard/projects/view/' . $row->id)?>" style="text-decoration:none;padding-right:5px"><span class="label notice">View</span></a>
                 </tr>
                 <?php endforeach; ?>

@@ -8,7 +8,7 @@
 
 <div class="content">
     
-    <h2><?= $this->uri->segment(4)?></h2>
+    <h2><?getName($this->uri->segment(4))?></h2>
     <div class="row" style="margin-top:10px">
     <div class="well span4">
         <div class="page-title">

@@ -9,7 +9,4 @@
 <div class="content">
 <? $this->notify->output()?>
 <div id="calendar"></div>
-<pre>
-<? print_r($hours)?>
-</pre>
     
