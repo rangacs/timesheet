@@ -25,18 +25,19 @@
 	    margin-bottom: 10px;
 	}
     </style>
-    <div class="well span4" style="width:240px;margin-left:0">
-	<?= form_open('dashboard/projects/add') ?>
-        
-        <label for="name">Name:</label><input type="text" name="name" /><br/>
-        <label for="description">Description:</label><input type="text" name="description" /><br/>
-        <input class="btn primary" type="submit" value="Submit" />
-        
-        <?= form_close()?>
-
+    <div class="row">
+	<div class="well span4" style="width:240px">
+	    <?= form_open('dashboard/projects/add') ?>
+	    
+	    <label for="name">Name:</label><input type="text" name="name" /><br/>
+	    <label for="description">Description:</label><input type="text" name="description" /><br/>
+	    <input class="btn primary" type="submit" value="Submit" />
+	    
+	    <?= form_close()?>
     
-    </div>
-</div><!--./body content-->
+	
+	</div><!--/well-->
+    </div><!--/row-->
 	    
 
 

@@ -191,25 +191,37 @@ Class Hours extends CI_Controller
     {
         if($this->input->post())
         {
+            $start = $this->input->post('start-hour');
+            $start .= ':';
+            $start .= $this->input->post('start-minute');
+            
+            $end = $this->input->post('end-hour');
+            $end .= ':';
+            $end .= $this->input->post('end-minute');
+            
             $update_id = $this->input->post('id');
             $update_data = array(
                         "project_id" => $this->input->post('project_id'),
                         "date" => $this->input->post('date'),
-                        "week" => $this->input->post('week'),
-                        "hours" => $this->input->post('hours'),
-                        "start" => $this->input->post('start'),
-                        "end" => $this->input->post('end'),
+                        "week" => date('W', strtotime($this->input->post('date'))),
+                        "hours" => total_hours($start, $end, $this->input->post('break')),
+                        "start" => $start,
+                        "end" => $end,
                         "break" => $this->input->post('break'),
                         "comment" => $this->input->post('comment'),
                     );
-            
+
             if($this->hours_model->update($update_id, $update_data))
             {
-                redirect(base_url('dashboard/hours/view') . '/' . $update_id);
+                $this->notify->add('success', 'Record updated successfully!');
+                        
+                redirect(base_url('dashboard/hours/index'));
             }
             else
             {
-                echo 'error';
+                $this->notify->add('error', '<b>ERROR</b> Reccord not updated!!!');
+                        
+                redirect(base_url('dashboard/hours/index'));
             }
         }
         
