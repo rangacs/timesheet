@@ -30,7 +30,7 @@ Class Login extends CI_Controller{
                 
             $this->session->set_userdata($data);
                 
-            redirect('dashboard/overview');
+            redirect('dashboard/overview/index');
         }
         
         else

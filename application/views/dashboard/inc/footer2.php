@@ -1,5 +1,4 @@
 	    </div><!--./content-->
-	    
 	</div><!--./w980-->
 	<footer>
 		footer
@@ -22,8 +21,9 @@
 			    dayClick: function(date, allDay, jsEvent, view) {
 
 				if (allDay) {
-				    location.assign(<?base_url()?> 'date/' + $.fullCalendar.formatDate(date, 'yyyy/MM/dd'));
-				}
+				    location.assign('date/' + $.fullCalendar.formatDate(date, 'yyyy/MM/dd'));
+				}	    
+				
 			    },
 			
 			events: [
@@ -38,7 +38,6 @@
 		    });
 	    });
 	</script>
-	
     </body>
     
 </html>
